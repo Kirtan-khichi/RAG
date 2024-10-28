@@ -10,10 +10,8 @@ def GroqChat(question):
     return chat_completion.choices[0].message.content
 
 def generate_answer_with_sources(query, retrieved_chunks):
-    # Use a set to store unique (video_id, start_time) pairs
     
     if not retrieved_chunks:
-        # Fallback response when no relevant context is found
         return {"response": "It appears that there is no relevant information available on this topic in the database.", "context": "", "sources": []}
     
     unique_contexts = set()
@@ -24,22 +22,17 @@ def generate_answer_with_sources(query, retrieved_chunks):
         start_time = chunk[0].start_time
         text = chunk[0].text
         
-        # Check if the (video_id, start_time) pair is unique
         if (video_id, start_time) not in unique_contexts:
             unique_contexts.add((video_id, start_time))
             context_list.append(f"[{video_id} - {start_time}] {text}")
     
-    # Join all unique contexts into a single context string
     context = " ".join(context_list)
     print(context)
     
-    # Prepare the input text for the model
     input_text = f"Query: {query}\nContext: {context}\nAnswer:"
     
-    # Generate the response
     response = GroqChat(input_text)
     
-    # Include only unique sources based on video_id and start_time
     unique_sources = [{"video_id": video_id, "start_time": start_time} for video_id, start_time in unique_contexts]
     
     return {"response": response, "context": context, "sources": unique_sources}

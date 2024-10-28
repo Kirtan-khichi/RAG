@@ -10,7 +10,7 @@ const FileUpload = () => {
   };
 
   const handleUpload = async () => {
-    console.log("File upload triggered");  // Add this line for debugging
+    console.log("File upload triggered");  
     if (!file) {
       alert('Please select a file');
       return;
@@ -19,7 +19,7 @@ const FileUpload = () => {
     try {
       const response = await uploadCSV(file);
       setMessage(response.message);
-      console.log("Upload successful:", response);  // Add this for debugging
+      console.log("Upload successful:", response);  
     } catch (error) {
       setMessage('Failed to upload file.');
     }

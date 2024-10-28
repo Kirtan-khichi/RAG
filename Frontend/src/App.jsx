@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div>
       <h1>RAG Video ChatBot</h1>
-      {/* <FileUpload /> */}
+      <FileUpload />
       <ChatBot />
     </div>
   );

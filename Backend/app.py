@@ -9,7 +9,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.config.from_object(Config)
 
-CORS(app, origins=["http://localhost:5173",  "https://videosearchpadhai.netlify.app"])
+CORS(app, origins=["http://localhost:5173"])
 
 db.init_app(app)
 
@@ -32,7 +32,7 @@ def upload_video_data():
                 'description': row['description'],
                 'transcript_chunks': parse_transcript_chunks(row['transcript'])
             }
-            ingest_video(video_data)  # Call the ingest function to store video data
+            ingest_video(video_data)
 
         return jsonify({"message": "File processed and videos ingested successfully"}), 200
 
@@ -80,10 +80,8 @@ def query():
         return jsonify({"error": "No query provided"}), 400
 
     try:
-        # Step 1: Retrieve top relevant chunks based on the query
         retrieved_chunks = retrieve_top_chunks(user_query)
 
-        # Step 2: Generate a response using the retrieved chunks
         response = generate_answer_with_sources(user_query, retrieved_chunks)
 
         return jsonify(response), 200

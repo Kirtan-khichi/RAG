@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getChatResponse } from '../api';
-import './ChatBot.css';  // Import the CSS file
+import './ChatBot.css'; 
 
 const ChatBot = () => {
   const [query, setQuery] = useState('');
@@ -38,7 +38,6 @@ const ChatBot = () => {
             <p className="error-message">{response.error}</p>
           ) : (
             <div className="response-comparison">
-              {/* Left Side: Retrieved Context */}
               <div className="retrieval-context">
                 <h4>Retrieved Context</h4>
                 <p>{response.context}</p>
@@ -57,7 +56,6 @@ const ChatBot = () => {
                 </div> */}
               </div>
 
-              {/* Right Side: Generated Response */}
               <div className="generated-response">
                 <h4>Generated Response</h4>
                 <p>{response.response}</p>

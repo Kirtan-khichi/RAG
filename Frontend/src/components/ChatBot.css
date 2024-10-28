@@ -1,7 +1,5 @@
-/* ChatBot.css */
-
 .chatbot-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -24,7 +22,7 @@
   .chatbot-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #F58A42;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -33,7 +31,7 @@
   }
   
   .chatbot-button:hover {
-    background-color: #0056b3;
+    background-color: #f57520;
   }
   
   .response-container {
