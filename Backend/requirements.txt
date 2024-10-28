@@ -1,0 +1,10 @@
+Flask
+SQLAlchemy
+psycopg2
+pgvector
+sentence-transformers
+scikit-learn
+transformers
+groq
+flask_sqlalchemy
+flask-cors
