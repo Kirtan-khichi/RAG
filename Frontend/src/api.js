@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:5000';
+const API_URL = 'https://rag-cc5g.onrender.com';
 
 export const uploadCSV = async (file) => {
   const formData = new FormData();
